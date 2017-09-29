@@ -1,0 +1,5 @@
+commit 6c52e3d2379eac5ed9b66455074fe5e9c6a42de1
+Author: brallansanchez <brsr1234@gmai.com>
+Date:   Thu Sep 28 20:58:27 2017 -0600
+
+    curso de laravel5.2
