@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Market extends Model
 {
     //
-    protected $table = 'products';
+    protected $table = 'marks';
     protected $primarykey = 'id';
     protected $fillable = [
-    'id','name','price','marks_id'
+    'id','name'
     ];
-    public function product()
+    public function mark()
     {
-        return $this->belongsto(Product::class);
+        return $this->hasmany(Mark::class);
     }
 }

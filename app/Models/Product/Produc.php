@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Produc extends Model
 {
     //
-    protected $table = 'marks';
+    protected $table = 'products';
     protected $primarykey = 'id';
     protected $fillable = [
-    'id','name'
+    'id','name','price','marks_id'
     ];
-    public function mark()
+    public function product()
     {
-        return $this->hasmany(Mark::class);
+        return $this->belongsto(Product::class);
     }
 }
