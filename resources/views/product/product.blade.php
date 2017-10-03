@@ -23,24 +23,20 @@
 
              <table class="table table-bordered">
                <thead>
-                  <th>#</th>
                   <th>Nombre</th>
                   <th>Precio</th>
                   <th>Marca</th>
                   <th>Acción</th>
                </thead>
                <tbody>
-               @foreach($products as $product)
-                  <tr>
-                     <td>{{$product->name}}</td>
-                     <td>{{$product->price}}</td>
-                     <td>{{$product->mark_id}}</td>
-                     <td></td>
-                     <td></td>
+              @foreach($products as $product)
+              <tr>
+               <td>{{$product->name}}</td>
+               <td>{{$product->price}}</td>
+               <td>{{$product->mark_id}}</td>
+               <td></td>
                   </tr>
-
-
-               @endforeach
+                  @endforeach
                </tbody>
 
 

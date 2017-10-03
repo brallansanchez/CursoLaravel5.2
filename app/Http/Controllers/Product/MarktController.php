@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class MarketController extends Controller
+class MarktController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,6 @@ class MarketController extends Controller
     public function index()
     {
         //
-        return 'ejemplo2';
     }
 
     /**
@@ -28,7 +27,6 @@ class MarketController extends Controller
     public function create()
     {
         //
-        return 'regresa el formulario de nuevo producto';
     }
 
     /**
