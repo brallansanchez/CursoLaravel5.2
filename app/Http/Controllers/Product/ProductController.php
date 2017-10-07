@@ -12,7 +12,7 @@ class ProductController extends Controller
     //
     public  function index()
     {
-        $product = \Market\Models\Product\Produc::all();
-        return view('product/product')->with("products",$product);
+        $product = \Market\Models\Product\Product::all();
+        return View('product/product')->with("products",$products);
     }
 }

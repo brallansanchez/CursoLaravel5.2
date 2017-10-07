@@ -4,13 +4,13 @@ namespace App\Models\Product;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Produc extends Model
+class Product extends Model
 {
     //
-    protected $table = 'marks';
+    protected $table = 'products';
     protected $primarykey = 'id';
     protected $fillable = [
-    'id','name'
+    'id','name', 'price', 'marks_id'
     ];
     public function mark()
     {

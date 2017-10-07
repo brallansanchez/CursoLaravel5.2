@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMarkTable extends Migration
+class CreateProductTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,15 @@ class CreateMarkTable extends Migration
      */
     public function up()
     {
-       Schema::create('marks',function(Blueprint $table){
+        //
+        Schema::create('products',function(Blueprint $table){
            $table->increments('id');
-           $table->string('name',50);
-       });
+           $table->string('name',100);
+           $table->decimal('price',5,2);
+           $table->integer('marks_id')->unsigned();
+          // $table->timestramps();
+           $table->foreign('marks_id')->references('id')->on('marks');
+        });
     }
 
     /**
@@ -26,6 +31,5 @@ class CreateMarkTable extends Migration
     public function down()
     {
         //
-        Schema::drop('marks');
     }
 }

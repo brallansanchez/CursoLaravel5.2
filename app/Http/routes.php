@@ -16,10 +16,10 @@ Route::get('/', function () {
 });
 Route::group(['middleware'=>['web']], function ()
 {
-    route::get('product','Product\ProductController@index');
-    route::get('market','Product\MarketController@index');
    //route::get('panel','Desktop\Administrator@panel');
    //route::get('access','Desktop\Administrator@access');
   // route::get('reports','Desktop\Administrator@reports');
   route::get('dashboard','Desktop\DashboardController@index');
+  route::get('product','Product\ProductController@index');
+  route::get('market','Product\MarketController@index');
 });
