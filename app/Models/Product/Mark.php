@@ -15,6 +15,6 @@ class Mark extends Model
       public function product ()
       {
          // belongsto --- pertenece a
-         return $this->belongsto(Product::class)
+         return $this->belongsto(Product::class);
       }
 }

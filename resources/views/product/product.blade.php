@@ -33,7 +33,7 @@
               <tr>
                <td>{{$product->name}}</td>
                <td>{{$product->price}}</td>
-               <td>{{$product->mark_id}}</td>
+               <td>{{$product->marks_id}}</td>
                <td></td>
                   </tr>
                   @endforeach
