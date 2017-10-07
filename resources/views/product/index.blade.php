@@ -10,12 +10,10 @@
      <li><a href="{{url('dashboard')}}">Escritorio</a></li>
      <li class="active">Productos</li>
    </ol>
- 
-
    <div class="page-header">
      <h1>Productos <small>Actualizados hasta hoy</small></h1>
    </div>
-
+  @include('partials.messages')
    <div class="row">
      <div class="col-md-8">
 
@@ -41,14 +39,17 @@
                      <td>{{$product->product}}</td>
                      <td>{{$product->price}}</td>
                      <td>{{$product->mark}}</td>
-                     <td><a href="#">[Editar]</a> <a href="#">[Eliminar]</a></td>
+                     <td><a href="{{route('product.edit',$product->id)}}">[Editar]</a> 
+                     <a href="{{route('product.show',$product->id)}}">[Eliminar]</a></td>
                   </tr>
                @endforeach
                </tbody>
 
 
              </table>
-
+           <div class='text-center'>
+              {!!$products->links()!!}
+           </div>
 
           </div>
         </div>

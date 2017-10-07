@@ -43,8 +43,6 @@
           {!!Form::close()!!}
 
 
-
-
            </div>
         </div>
 
@@ -58,6 +56,6 @@
       document.location.href = "{{ route('product.index')}}";
   });
 </script>
-  
+
 
 @endsection

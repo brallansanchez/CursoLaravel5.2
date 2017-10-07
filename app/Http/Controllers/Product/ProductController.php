@@ -8,6 +8,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use \App\Models\Product\Mark;
 use \App\Models\Product\Product;
+use Session;
+use \App\Http\Requests\Product\ProductCreateRequest;
+use \App\Http\Requests\Product\ProductUpdateRequest;
+
 
 class ProductController extends Controller
 {
@@ -19,7 +23,9 @@ class ProductController extends Controller
     public function index()
     {
         //
-          $products = Product::select('products.id','products.name as product','price','marks.name as mark')->join('marks','marks.id','=','products.marks_id')->get();
+          $products = Product::select('products.id','products.name as product','price','marks.name as mark')
+          ->join('marks','marks.id','=','products.marks_id')
+          ->paginate(5);
           return View('product/index')->with('products',$products);
     }
 
@@ -41,10 +47,11 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductCreateRequest $request)
     {
         //
         Product::create($request->all());
+        Session::flash('save','Se ha guardado correctamente');
         return redirect()->route('product.index');
     }
 
@@ -57,6 +64,8 @@ class ProductController extends Controller
     public function show($id)
     {
         //
+        $products = Product::FindOrFail($id);
+        return view('product.show')->with('products',$products);
     }
 
     /**
@@ -83,6 +92,13 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $products = Product::FindOrFail($id);
+        $input = $request->all();
+        $products->fill($input)->save();
+        Session::flash('update','Se ha actualizado correctamente');
+        
+        return redirect()->route('product.index');
+
     }
 
     /**
@@ -94,5 +110,10 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+        $products = Product::FindOrFail($id);
+        $products->delete();
+        Session::flash('delete','Se ha eliminado correctamente');
+        
+        return redirect()->route('product.index');
     }
 }
