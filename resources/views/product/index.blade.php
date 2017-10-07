@@ -5,6 +5,13 @@
 @section('content')
 
    <!-- Main component for a primary marketing message or call to action -->
+   
+  <ol class="breadcrumb">
+     <li><a href="{{url('dashboard')}}">Escritorio</a></li>
+     <li class="active">Productos</li>
+   </ol>
+ 
+
    <div class="page-header">
      <h1>Productos <small>Actualizados hasta hoy</small></h1>
    </div>
@@ -16,7 +23,7 @@
           <div class="panel-heading">
              Lista
              <p class="navbar-text navbar-right" style=" margin-top: 1px;">
-                <button type="button" class="btn btn-warning navbar-btn" style="margin-bottom: 1px; margin-top: -5px;margin-right: 8px;padding: 3px 20px;">Nuevo</button>
+                <button type="button" id='nuevo'  name='nuevo' class="btn btn-warning navbar-btn" style="margin-bottom: 1px; margin-top: -5px;margin-right: 8px;padding: 3px 20px;">Nuevo</button>
              </p>
            </div>
           <div class="panel-body">
@@ -29,14 +36,14 @@
                   <th>Acción</th>
                </thead>
                <tbody>
-              @foreach($products as $product)
-              <tr>
-               <td>{{$product->name}}</td>
-               <td>{{$product->price}}</td>
-               <td>{{$product->marks_id}}</td>
-               <td></td>
+               @foreach($products as $product)
+                  <tr>
+                     <td>{{$product->product}}</td>
+                     <td>{{$product->price}}</td>
+                     <td>{{$product->mark}}</td>
+                     <td><a href="#">[Editar]</a> <a href="#">[Eliminar]</a></td>
                   </tr>
-                  @endforeach
+               @endforeach
                </tbody>
 
 
@@ -50,5 +57,11 @@
      </div>
    </div>
 
-
+<script>
+  $("#nuevo").click(function(event)
+  {
+      document.location.href = "{{ route('product.create')}}";
+  });
+</script>
+  
 @endsection

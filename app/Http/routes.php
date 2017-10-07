@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 Route::group(['middleware'=>['web']], function ()
 {
-    route::get('product','Product\ProductController@index');
+    route::resource('product','Product\ProductController');
     route::get('market','Product\MarktController@index');
    //route::get('panel','Desktop\Administrator@panel');
    //route::get('access','Desktop\Administrator@access');
