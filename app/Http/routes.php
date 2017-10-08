@@ -23,3 +23,7 @@ Route::group(['middleware'=>['web']], function ()
   // route::get('reports','Desktop\Administrator@reports');
     route::get('dashboard','Desktop\DashboardController@index');
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
