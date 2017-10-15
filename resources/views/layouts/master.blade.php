@@ -40,7 +40,7 @@
           <ul class="nav navbar-nav">
            <li><a href="{{url('dashboard')}}">Escritorio</a></li>
             <li><a href="{{url('product')}}">Productos</a></li>
-            <li><a href="{{url('mark')}}">Marcas</a></li>
+            <li><a href="{{url('market')}}">Marcas</a></li>
           </ul>
 
         </div><!--/.nav-collapse -->

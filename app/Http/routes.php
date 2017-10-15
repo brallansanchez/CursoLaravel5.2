@@ -16,21 +16,14 @@ Route::get('/', function () {
 });
 Route::group(['middleware'=>['web']], function ()
 {
-<<<<<<< HEAD
-   //route::get('panel','Desktop\Administrator@panel');
-   //route::get('access','Desktop\Administrator@access');
-  // route::get('reports','Desktop\Administrator@reports');
-  route::get('dashboard','Desktop\DashboardController@index');
-  route::get('product','Product\ProductController@index');
-  route::get('market','Product\MarketController@index');
-=======
+
     route::resource('product','Product\ProductController');
-    route::get('market','Product\MarktController@index');
+    route::resource('market','Product\MarktController');
    //route::get('panel','Desktop\Administrator@panel');
    //route::get('access','Desktop\Administrator@access');
   // route::get('reports','Desktop\Administrator@reports');
     route::get('dashboard','Desktop\DashboardController@index');
->>>>>>> 15fe9a31578ece95c6aca0550e4fc7281d78af69
+
 });
 
 Route::auth();

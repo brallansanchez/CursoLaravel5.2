@@ -27,7 +27,8 @@
 
 
 
-            {!!Form::open(['route'=>'product.store','method'=>'POST'])!!}
+            {!!Form::open(['route'=>'product.store','method'
+            =>'POST'])!!}
             
 	      <div class="form-group">
                   {!!form::label('Nombre')!!}

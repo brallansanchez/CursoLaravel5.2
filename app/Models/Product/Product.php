@@ -12,6 +12,7 @@ class Product extends Model
     protected $fillable = [
     'id','name', 'price', 'marks_id'
     ];
+    public $timestamps=false;
     public function mark()
     {
         return $this->hasmany(Mark::class);

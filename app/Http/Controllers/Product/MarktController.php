@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use \App\Models\Product\Market;
+use Session;
+
 
 class MarktController extends Controller
 {
@@ -16,7 +19,9 @@ class MarktController extends Controller
      */
     public function index()
     {
-        //
+        //$marks = Market::all();
+         $marks = Market::select('marks.name')->paginate(5);
+          return View('market/index')->with('marks',$marks);
     }
 
     /**
@@ -25,8 +30,10 @@ class MarktController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+
+    {        
+        return view('market.create');//->with('marks',$marks);
+      
     }
 
     /**
@@ -37,7 +44,9 @@ class MarktController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Market::create($request->all());
+        Session::flash('save','Se ha guardado correctamente');
+        return redirect()->route('market.index');
     }
 
     /**
@@ -48,7 +57,8 @@ class MarktController extends Controller
      */
     public function show($id)
     {
-        //
+        $marks = Market::FindOrFail($id);
+        return view('market.show')->with('marks',$marks);
     }
 
     /**
@@ -59,7 +69,10 @@ class MarktController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $marks = Market::FindOrFail($id);
+        return view('market.edit')->with('marks',$marks);
+    
     }
 
     /**
@@ -71,7 +84,12 @@ class MarktController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $marks = Market::FindOrFail($id);
+        $input = $request->all();
+        $marks->fill($input)->save();
+        Session::flash('update','Se ha actualizado correctamente');
+        
+        return redirect()->route('market.index');
     }
 
     /**
@@ -82,6 +100,11 @@ class MarktController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $marks = Market::FindOrFail($id);
+        $marks->delete();
+        Session::flash('delete','Se ha eliminado correctamente');
+        
+        return redirect()->route('market.index');
+
     }
 }

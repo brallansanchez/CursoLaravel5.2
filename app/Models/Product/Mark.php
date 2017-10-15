@@ -12,6 +12,8 @@ class Mark extends Model
       protected $fillable = [
          'id','name'
       ];
+      public $timestamps=false;
+
       public function product ()
       {
          // belongsto --- pertenece a

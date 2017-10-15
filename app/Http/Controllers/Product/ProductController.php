@@ -9,8 +9,6 @@ use App\Http\Controllers\Controller;
 use \App\Models\Product\Mark;
 use \App\Models\Product\Product;
 use Session;
-use \App\Http\Requests\Product\ProductCreateRequest;
-use \App\Http\Requests\Product\ProductUpdateRequest;
 
 
 class ProductController extends Controller
@@ -47,7 +45,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductCreateRequest $request)
+    public function store(Request $request)
     {
         //
         Product::create($request->all());
@@ -109,16 +107,13 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-<<<<<<< HEAD
-        $product = \Market\Models\Product\Product::all();
-        return View('product/product')->with("products",$products);
-=======
-        //
+
+        
         $products = Product::FindOrFail($id);
         $products->delete();
         Session::flash('delete','Se ha eliminado correctamente');
         
         return redirect()->route('product.index');
->>>>>>> 15fe9a31578ece95c6aca0550e4fc7281d78af69
+
     }
 }

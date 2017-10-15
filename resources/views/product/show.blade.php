@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
-@section('title','Editar Producto')
+@section('title','Eliminar Producto')
 
 @section('content')
 
 <ol class="breadcrumb">
      <li><a href="{{url('dashboard')}}">Escritorio</a></li>
      <li><a href="{{url('product')}}"> Productos</a></li>
-     <li class="active">Editar Producto</li>
+     <li class="active">Eliminar Producto</li>
    </ol>
  
 
